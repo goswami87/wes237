@@ -1,8 +1,8 @@
 #code to plot the hit/miss tries, this task will be executed whenever response arrives
 import matplotlib.pyplot as plt
 
-hitsArray_X = [1, 2, 3, 4, 5]
-hitsArray_Y = [2, 4, 1, 3, 5]
+hitsArray_X = [0.5, 1.5, 2.5, 3.5, 4.5]
+hitsArray_Y = [1.5, 3.5, 0.5, 2.5, 4.5]
 missArray_X = [1.5, 2.5, 3.5, 4.5, 5.5]
 missArray_Y = [2.5, 4.5, 1.5, 3.5, 5.5]
 
