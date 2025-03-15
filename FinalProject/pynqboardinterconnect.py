@@ -6,15 +6,15 @@ receivedDataStringFromDestinationHost = ""
 isConnected = False
 
 # Server configuration which pynq board will use
-server_host = 'localhost'
-server_port = 12345
+server_host = '192.168.0.4'
+server_port = 8080
     
 # Client configuration
-client_host = 'localhost' #Ip of Destination host
-client_port = 12346  # port for client to connect to the destination host
+client_host = '137.110.39.253' #Ip of Destination host
+client_port = 8080  # port for client to connect to the destination host
 
 # Server Function for PYNQ side handling
-def start_server_4pynq_side(server_socket,client_socket_4host_side,fork)
+def start_server_4pynq_side(server_socket,client_socket_4host_side,fork):
 
     # Bind and listen
     server_socket.bind((server_host, server_port))
@@ -23,7 +23,7 @@ def start_server_4pynq_side(server_socket,client_socket_4host_side,fork)
 
     # Accept incoming connection
     pynq_side_conn_handle, pynq_client_address = server_socket.accept()
-    print(f"Server connected to {client_address}")
+    print(f"Server connected to {pynq_client_address}")
 
     global receivedDataStringFromPYNQ
     global receivedDataStringFromDestinationHost
@@ -91,7 +91,7 @@ if __name__ == '__main__':
     server_socket_4pynq_side = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     
     # Start server in a separate thread
-    server_thread = threading.Thread(target=start_server_4pynq_side,args=(server_socket_4pynq_side,client_socket_4host_side,fork)
+    server_thread = threading.Thread(target=start_server_4pynq_side,args=(server_socket_4pynq_side,client_socket_4host_side,fork))
     server_thread.start()
 
     # Start client after a short delay to give server time to start
@@ -99,3 +99,4 @@ if __name__ == '__main__':
     time.sleep(1)
 
     start_client_4_Dest_PC(client_socket_4host_side,fork)
+
