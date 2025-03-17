@@ -4,13 +4,20 @@ import threading
 receivedDataStringFromPYNQ = ""
 receivedDataStringFromDestinationHost = ""
 isConnected = False
-
+'''
 # Server configuration which pynq board will use
 server_host = '192.168.0.4'
 server_port = 8080
     
 # Client configuration
 client_host = '137.110.39.253' #Ip of Destination host
+client_port = 8080  # port for client to connect to the destination host
+'''
+server_host = '137.110.42.166'
+server_port = 8080
+
+# Client configuration
+client_host = '192.168.0.187' #Ip of Destination host
 client_port = 8080  # port for client to connect to the destination host
 
 # Server Function for PYNQ side handling
